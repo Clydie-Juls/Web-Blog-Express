@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Boogie-Post</title>
+  </head>
+  <body>
+    <%- include("partials/header.ejs") %>
+    <section class="hero container">
+      <div class="title">
+        <h1>Featuring Posts</h1>
+        <a href="#content">see more →</a>
+      </div>
+      <div>
+        <img src="<%= bPosts[1].image %>" alt="some image" />
+        <div class="sub-feature">
+          <h3 class="date"><%= bPosts[1].date %></h3>
+          <h3 class="topic"><%= bPosts[1].title %></h3>
+          <div>
+            <a href="/view/<%= bPosts[1].id %>">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <img src="<%= bPosts[0].image %>" alt="some image" />
+        <div>
+          <h2><%= bPosts[0].title %></h2>
+        </div>
+      </div>
+      <div>
+        <img src="<%= bPosts[2].image %>" alt="some image" />
+
+        <div class="sub-feature">
+          <h3 class="date"><%= bPosts[2].date %></h3>
+          <h3 class="topic"><%= bPosts[2].title %></h3>
+          <div>
+            <a href="/view/<%= bPosts[2].id %>">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="content" class="content container">
+      <h1 class="content-title">Read Posts</h1>
+      <div class="blog">
+        <% for(let i = 0; i < bPosts.length; i++) { %>
+        <div class="card">
+          <img src="<%= bPosts[i].image %>" alt="image" />
+          <div class="card-content">
+            <h4><%= bPosts[i].title %></h4>
+            <p><%=bPosts[i].description %></p>
+          </div>
+          <div class="card-footer">
+            <p class="date"><%= bPosts[i].date %></p>
+            <a href="/view/<%= bPosts[i].id %>">see more →</a>
+          </div>
+        </div>
+        <% } %>
+      </div>
+    </section>
+    <%- include("partials/footer.ejs") %>
+  </body>
+  <script
+    src="https://kit.fontawesome.com/1cc61be9b8.js"
+    crossorigin="anonymous"
+    defer
+  ></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="/js/main.js"></script>
+</html>
